@@ -1,9 +1,9 @@
 sync:
-  build: .
+  build: ./user-service
   ports:
-   - "8082:1337"
+   - "8082:8082"
   volumes:
-   - .:/src
+   - ./user-service:/src
   links:
    - rabbit
   command: node index.js

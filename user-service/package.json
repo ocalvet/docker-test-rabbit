@@ -1,0 +1,14 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "A user management service",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Ovidio R. Calvet",
+  "license": "MIT",
+  "dependencies": {
+    "amqp": "^0.2.4"
+  }
+}

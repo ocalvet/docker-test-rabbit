@@ -1,3 +1,12 @@
-# test
+# Microservices Example Application
 
-a [Sails](http://sailsjs.org) application
+a Microservices example application
+
+## Dependencies
+
+- Docker
+
+
+## Running
+
+```docker-compose up

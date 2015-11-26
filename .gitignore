@@ -1,1 +1,4 @@
-node_modules
+user-service/node_modules
+
+reward-service/node_modules
+
