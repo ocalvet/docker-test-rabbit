@@ -1,9 +1,11 @@
-var amqp = require('amqp');
-var connection = amqp.createConnection({ host: "rabbit", port: 5672 });
+var amqp = require('amqplib');
+var connect = amqp.connect("amqp://rabbit");
 
-connection.on('ready', function () {
-  console.log('connected to rabbitMQ');
+connect.then(function (conn) {
+  console.log('User service connected to rabbitMQ');
+}, function(err) {
+  console.error("Error: ", err);
 });
 
-console.log('Testing node app on docker rabbit:');
+console.log('User service up...');
 

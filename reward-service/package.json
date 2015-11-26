@@ -1,7 +1,7 @@
 {
-  "name": "user-service",
+  "name": "reward-service",
   "version": "1.0.0",
-  "description": "A user management service",
+  "description": "A reward management service",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"

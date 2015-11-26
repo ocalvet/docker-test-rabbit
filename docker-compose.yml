@@ -1,4 +1,8 @@
-sync:
+rabbit:
+  image: rabbitmq:3.5.6-management
+  ports:
+   - "9091:15672"
+user-service:
   build: ./user-service
   ports:
    - "8082:8082"
@@ -6,8 +10,13 @@ sync:
    - ./user-service:/src
   links:
    - rabbit
-  command: node index.js
-rabbit:
-  image: rabbitmq:3.5.6-management
+  command: ./start.sh
+reward-service:
+  build: ./reward-service
   ports:
-   - "8083:15672"
+   - "8083:8083"
+  volumes:
+   - ./reward-service:/src
+  links:
+   - rabbit
+#  command: node index.js
