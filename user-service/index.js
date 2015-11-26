@@ -1,5 +1,11 @@
 var amqp = require('amqplib');
 var connect = amqp.connect("amqp://rabbit");
+var ex = 'logs';
+
+function sendMesage(ch, msg) {
+  ch.publish(ex, '', new Buffer(msg));
+  console.log(" [x] Sent %s", msg);
+}
 
 connect
   .then(function (conn) {
@@ -9,11 +15,9 @@ connect
     console.error("Error: ", err);
   })
   .then(function(ch) {
-      var ex = 'logs';
       var msg = process.argv.slice(2).join(' ') || 'Hello World!';
       ch.assertExchange(ex, 'fanout', {durable: false});
-      ch.publish(ex, '', new Buffer(msg));
-      console.log(" [x] Sent %s", msg);
+      setInterval(sendMesage.bind(this,ch, msg), 1000);
   });
 
 console.log('User service up...');
