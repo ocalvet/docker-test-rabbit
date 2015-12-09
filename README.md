@@ -5,7 +5,7 @@ a Microservices example application
 ## Dependencies
 
 - Docker
-
+- RabbitMQ
 
 ## Running
 
